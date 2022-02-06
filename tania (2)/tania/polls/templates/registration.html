@@ -1,0 +1,25 @@
+{% extends 'polls/base/base.html' %} 
+
+{% load static %} 
+
+{% block title %}You registered successfully!{% endblock %} 
+
+{% block site_css %} 
+<link rel="stylesheet" href="{% static 'polls/styles/register.css'%}">
+{% endblock %}
+
+{% block main_heading %}Thanks for choosing us{% endblock %} 
+ 
+{% block body %}
+<section id='confirmation'>
+<h2>We Receive your requested for a Movie ! </h2>
+<p> Your Ticket Reservation processed successfully - we will arrange your sit for selected movie time! </p>
+
+<p>Got questions or can't make it? Please contact the<a href="mailto:{{R_email}}"> organizer </a> ahead of time! </p>
+</section>
+<section id='continue'> 
+<p>Of course you can sign up for more than one movie! </p>
+
+<p> <a href="/" class="btn" > Explore our Current Options </a></p>
+</section>
+{% endblock %}

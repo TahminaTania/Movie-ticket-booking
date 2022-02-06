@@ -1,0 +1,50 @@
+{%extends 'polls/base/base.html'%} {% load static %} {%block title%} All Options
+{%endblock%} {% block site_css%}
+<link rel="stylesheet" href="{% static 'polls/styles/polls.css'%}" />
+{%endblock%} {%block main_heading%} ENJOY YOUR LEISURE {% endblock %} 
+{%block header_content %} find suitable Movie from here {% endblock %} 
+
+
+{%block body%}
+
+<section> 
+  <h2>Here are availble movies-</h2>
+<ol>
+ {% for item in polls %} 
+ {% include 'polls/include/items.html' with title=item.title  location='Blockbuster ' image=item.image.url slug=item.slug%}
+
+{% endfor%} 
+</ol>
+</section>
+{%endblock%}
+
+<!--
+         <h1>Hows life??</h1>
+        <p1>how are you </p>
+            <p2> Hows your family </p2>
+
+            {% if show_pol %}
+             {%for items in polls%}
+               <p> {{items.title }} </p>
+             {% endfor %}
+              
+             <!-- <h2>{{polls.2.tit}}</h2> 
+                  <h2>{{polls.0.title}}</h2>  -->
+
+<!--
+            {% else %}
+               <p1> <br> no show pol found</p1>  
+            {% endif %}
+          <h1> hihihihihi </h1>
+
+     -->
+
+<!-- <header id="main-header"> 
+        <nav><a href="/polls/" id="main-logo">DjangoLogo</a> </nav>
+        <h1> this is inside logo, the header</h1>
+        <p1> find the best one from here</p1>
+    </header> -->
+
+{% comment %} {%block header_content %}
+<p>find suitable one from here</p>
+{% endblock %} {% endcomment %}

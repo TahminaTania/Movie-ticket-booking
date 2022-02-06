@@ -1,0 +1,17 @@
+<li class="items">
+  <article>
+    <div class="summery">
+      <div class="image">
+        <img src="{{image}} " alt="{{title}}" />
+      </div>
+      <div class="details">
+        <h3>{{title}}</h3>
+        <address>{{location}}</address>
+      </div>
+    </div>
+    <div class="actions">
+      <!-- <a href= "/zara/{{item.slug}}" class= "btn" >more details</a> -->
+      <a href="{% url 'polls_details' slug %}" class="btn">more details</a>
+    </div>
+  </article>
+</li>

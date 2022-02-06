@@ -1,0 +1,52 @@
+{%extends 'polls/base/base.html'%}
+{% load static %}
+
+
+{%block title%} Details of -{{polls.title}} {%endblock%}
+
+{%block site_css%}
+<link rel="stylesheet" href="{% static 'polls/styles/details.css'%}">
+{%endblock%}
+
+{%block main_heading%} 
+<h1> {{polls.title}}</h1>
+ {%endblock%}
+
+{%block body%} 
+
+{%if polls_found%}
+<article> 
+    <img id='main-image' src="{{polls.image.url}}" alt= "">
+    <section id = "location">
+        <h2>Selected polls locations-</h2>
+        <address>this movie will takes place in <snan>{{polls.locate.name}}</snan> {{polls.locate.adress}} </address>
+    </section>
+    <section id= "details"> 
+        <h2>whats this Movie about?</h2>
+        <p> {{polls.details}} </p>
+        <footer> 
+            <p>for more details please contact the <a href="mailto:{{polls.organizer_email}}">Organizer </a> (but don't spam us) :)</p>
+        </footer>
+    </section>
+    <section id ="registration">
+        <h2> Confirm Ticket </h2>
+        <form action="{% url 'polls_details' polls.slug %}" method="POST"> 
+            {%csrf_token%}
+            <ul>
+              {{form.as_ul}}
+            </ul>
+            <div id='registration-actions'>
+                <button >Register</button>
+            </div>
+        </form>
+    </section>
+</article>
+
+{%else%}
+ <h1>NO OPTIONS FOUND FOR THIS SLUG</h1>
+{%endif%}
+
+{%endblock%}
+
+
+
